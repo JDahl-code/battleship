@@ -5,7 +5,7 @@ public enum X_Coord {
     Six ("6"), Seven ("7"), Eight ("8"), Nine ("9"), Ten ("10");
     private final String identifier;
 
-    private X_Coord(String identifier) {
+    X_Coord(String identifier) {
         this.identifier = identifier;
     }
 

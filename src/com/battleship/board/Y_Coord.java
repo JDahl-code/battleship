@@ -5,7 +5,7 @@ public enum Y_Coord {
 
     private final String identifier;
 
-    private Y_Coord(String identifier) {
+    Y_Coord(String identifier) {
         this.identifier = identifier;
     }
 

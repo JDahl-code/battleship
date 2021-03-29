@@ -5,7 +5,7 @@ import java.util.Collection;
 import static com.battleship.board.X_Coord.*;
 import static com.battleship.board.Y_Coord.*;
 
-class Board {
+public class Board {
     private Collection<Point> points = new ArrayList<>();
 
     public Board() {

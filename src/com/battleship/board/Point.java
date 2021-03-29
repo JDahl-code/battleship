@@ -15,7 +15,7 @@ class Point {
         setYCoord(yCoord);
     }
 
-    void target() {
+    void target() throws RepeatGuessException{
         if (status == Unchecked) {
             if (hasShip) {
                 ship.hit();
@@ -25,8 +25,7 @@ class Point {
             }
         }
         else {
-            // Maybe throw exception. Have player guess again. Don't handle exception here, just throw.
-            // To do: make new exception class.
+            throw new RepeatGuessException("You have already selected that point. Try again.");
         }
     }
 
@@ -54,7 +53,7 @@ class Point {
         this.ship = ship;
     }
 
-    public boolean isHasShip() {
+    public boolean hasShip() {
         return hasShip;
     }
 

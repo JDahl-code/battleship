@@ -1,3 +1,5 @@
+package com.battleship.board;
+
 class Ship {
 
     private String name;

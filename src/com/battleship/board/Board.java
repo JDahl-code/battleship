@@ -5,7 +5,7 @@ import java.util.Collection;
 import static com.battleship.board.X_Coord.*;
 import static com.battleship.board.Y_Coord.*;
 
-class Board {
+public class Board {
     private Collection<Point> points = new ArrayList<>();
 
     public Board() {
@@ -16,7 +16,7 @@ class Board {
         }
     }
 
-    public Point findByCoords(String x, String y) {
+     public Point findByCoords(String x, String y) {
         return points.stream().filter(
                 point -> point.getXCoord().getIdentifier().equals(x)
                         &&
@@ -53,5 +53,9 @@ class Board {
                 System.out.printf("%s|", findByCoords(chars[i],numbers[j]).getStatus().getSymbol());
             }
         }
+    }
+
+    public Collection<Point> getPoints() {
+        return points;
     }
 }

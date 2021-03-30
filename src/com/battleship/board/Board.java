@@ -27,9 +27,9 @@ public class Board {
                         point.getYCoord().getIdentifier().equals(y.toUpperCase())
         ).findAny().get();
     }
+    /*  This method display a 10x10 board in color.
 
-    public void display() {
-        /*board
+                  board
           1 2 3 4 5 6 7 8 9 10
         A| | | | | | | | | | |
         B| | | | | | | | | | |
@@ -41,7 +41,9 @@ public class Board {
         H| | | | | | | | | | |
         I| | | | | | | | | | |
         J| | | | | | | | | | |
-        */
+     */
+    public void display() {
+
         String[] numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         String[] chars = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
         // The y coord line in yellow color

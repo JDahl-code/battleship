@@ -2,7 +2,7 @@ package com.battleship.board;
 
 import static com.battleship.board.PointStatus.*;
 
-class Point {
+public class Point {
 
     private X_Coord xCoord;
     private Y_Coord yCoord;
@@ -15,7 +15,11 @@ class Point {
         setYCoord(yCoord);
     }
 
-    void target() throws RepeatGuessException {
+ gameplay
+    public void target() throws RepeatGuessException{
+=======
+    public void target() throws RepeatGuessException {
+ main
         if (status == Unchecked) {
             if (hasShip) {
                 ship.hit();

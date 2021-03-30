@@ -6,7 +6,7 @@ import static com.battleship.board.X_Coord.*;
 import static com.battleship.board.Y_Coord.*;
 
 public class Board {
-    private Collection<Point> points = new ArrayList<>();
+    private ArrayList<Point> points = new ArrayList<>();
 
     public Board() {
         for (X_Coord x : X_Coord.values()) {
@@ -24,7 +24,7 @@ public class Board {
                                      ).findAny().get();
     }
 
-    public Collection<Point> getPoints() {
+    public ArrayList<Point> getPoints() {
         return points;
     }
 }

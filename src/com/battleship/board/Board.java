@@ -3,13 +3,14 @@ package com.battleship.board;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import static com.battleship.board.X_Coord.*;
 import static com.battleship.board.Y_Coord.*;
 import static com.battleship.board.ConsoleColors.*;
 
 public class Board {
-    private ArrayList<Point> points = new ArrayList<>();
+    private List<Point> points = new ArrayList<>();
 
     public Board() {
         for (X_Coord x : X_Coord.values()) {
@@ -48,7 +49,7 @@ public class Board {
         String[] chars = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
         // The y coord line in yellow color
         ConsoleColors.changeTo(YELLOW);
-        System.out.print(" ");
+        System.out.print("\n ");
         for (String number : numbers) {
             System.out.print(" " + number);
         }
@@ -84,7 +85,7 @@ public class Board {
         }
     }
 
-    public ArrayList<Point> getPoints() {
+    public List<Point> getPoints() {
         return points;
     }
 }

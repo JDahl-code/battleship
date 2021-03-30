@@ -14,9 +14,18 @@ public class Game {
         Player player = new Player(playerBoard, userName);
 
         Board oppBoard = new Board();
-        //Opponent opponent = new Opponent(oppBoard);
-        playerBoard.display();
+        Opponent opponent = new Opponent();
+        System.out.print("    Opponent Board");
+        oppBoard.display();
 
+        playerBoard.display();
+        System.out.println("\n     Your Board");
+
+    }
+
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
 }

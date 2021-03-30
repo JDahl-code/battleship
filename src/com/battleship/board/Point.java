@@ -15,11 +15,8 @@ public class Point {
         setYCoord(yCoord);
     }
 
- gameplay
-    public void target() throws RepeatGuessException{
-=======
     public void target() throws RepeatGuessException {
- main
+        
         if (status == Unchecked) {
             if (hasShip) {
                 ship.hit();

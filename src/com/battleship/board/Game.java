@@ -14,6 +14,7 @@ public class Game {
 
         Board oppBoard = new Board();
         //Opponent opponent = new Opponent(oppBoard);
+        playerBoard.display();
 
     }
 

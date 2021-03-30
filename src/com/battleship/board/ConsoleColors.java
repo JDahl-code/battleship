@@ -32,11 +32,11 @@ public enum ConsoleColors {
     }
 
     public static void changeTo(ConsoleColors color) {
-        System.out.println(color);
+        System.out.print(color);
     }
 
     public static void reset() {
-        System.out.println(ConsoleColors.RESET);
+        System.out.print(ConsoleColors.RESET);
     }
 
     @Override

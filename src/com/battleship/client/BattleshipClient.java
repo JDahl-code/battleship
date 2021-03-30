@@ -1,6 +1,6 @@
 package com.battleship.client;
 
-import com.battleship.board.Game;
+import com.battleship.gameplay.Game;
 
 class BattleshipClient {
     public static void main(String[] args) {

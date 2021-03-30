@@ -1,5 +1,6 @@
-package com.battleship.board;
+package com.battleship.gameplay;
 
+import com.battleship.board.Board;
 import com.battleship.player.Player;
 
 public class Game {

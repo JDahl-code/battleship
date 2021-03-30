@@ -3,6 +3,7 @@ package com.battleship.board;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+
 import static com.battleship.board.X_Coord.*;
 import static com.battleship.board.Y_Coord.*;
 import static com.battleship.board.ConsoleColors.*;
@@ -18,7 +19,7 @@ public class Board {
         }
     }
 
-     public Point findByCoords(String x, String y) {
+    public Point findByCoords(String x, String y) {
         return points.stream().filter(
                 point -> point.getXCoord().getIdentifier().equals(x)
                         &&
@@ -40,13 +41,13 @@ public class Board {
         I| | | | | | | | | | |
         J| | | | | | | | | | |
         */
-        String[] numbers = {"1","2","3","4","5","6","7","8","9","10"};
+        String[] numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         String[] chars = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
         // The y coord line in yellow color
         ConsoleColors.changeTo(YELLOW);
         System.out.println(" ");
-        for(String number : numbers){
-            System.out.print(" "+ number);
+        for (String number : numbers) {
+            System.out.print(" " + number);
         }
         ConsoleColors.reset();
 
@@ -59,8 +60,8 @@ public class Board {
             for (int j = 0; j < 10; j++) {
                 //System.out.printf("%s|", findByCoords(chars[i],numbers[j]).getStatus().getSymbol());
                 //color point status symbol first
-                String status = findByCoords(chars[i],numbers[j]).getStatus().getSymbol();
-                switch (status){
+                String status = findByCoords(chars[i], numbers[j]).getStatus().getSymbol();
+                switch (status) {
                     case " ":
                         break;
                     case "x":

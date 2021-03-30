@@ -31,11 +31,11 @@ public enum ConsoleColors {
         this.code = code;
     }
 
-    public static void changeTo(ConsoleColors color){
+    public static void changeTo(ConsoleColors color) {
         System.out.println(color);
     }
 
-    public static void reset(){
+    public static void reset() {
         System.out.println(ConsoleColors.RESET);
     }
 

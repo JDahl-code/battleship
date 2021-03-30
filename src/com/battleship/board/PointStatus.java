@@ -1,7 +1,7 @@
 package com.battleship.board;
 
 enum PointStatus {
-    Unchecked (" "), Hit ("x"), Miss ("o");
+    Unchecked(" "), Hit("x"), Miss("o");
 
     private String symbol;
 

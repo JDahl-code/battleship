@@ -15,7 +15,11 @@ public class Point {
         setYCoord(yCoord);
     }
 
+ gameplay
     public void target() throws RepeatGuessException{
+=======
+    public void target() throws RepeatGuessException {
+ main
         if (status == Unchecked) {
             if (hasShip) {
                 ship.hit();
@@ -23,8 +27,7 @@ public class Point {
             } else {
                 setStatus(Miss);
             }
-        }
-        else {
+        } else {
             throw new RepeatGuessException("You have already selected that point. Try again.");
         }
     }

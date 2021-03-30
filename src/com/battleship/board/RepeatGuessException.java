@@ -1,6 +1,6 @@
 package com.battleship.board;
 
-class RepeatGuessException extends RuntimeException{
+class RepeatGuessException extends RuntimeException {
 
     RepeatGuessException() {
         super();

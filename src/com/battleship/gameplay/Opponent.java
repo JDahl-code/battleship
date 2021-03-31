@@ -24,9 +24,10 @@ public class Opponent {
 
 
     Point pickRandomPoint(Board board) {
-        int rand = (int) (Math.random() * 100);
-        return board.getPoints().stream().filter(point -> point.getStatus() == PointStatus.UNCHECKED)
-                    .collect(Collectors.toCollection(ArrayList::new)).get(rand);
+        ArrayList<Point> validPoints = board.getPoints().stream().filter(point -> point.getStatus() == PointStatus.UNCHECKED)
+                                            .collect(Collectors.toCollection(ArrayList::new));
+        int rand = (int) (Math.random() * validPoints.size());
+        return validPoints.get(rand);
     }
 
     // length includes the starting point. That way, the length attribute in Ship can be passed.
@@ -181,7 +182,7 @@ public class Opponent {
         }
         else {
             missToken++;
-            switchBranch();
+            followUp();
         }
     }
 

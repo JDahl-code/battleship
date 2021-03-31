@@ -24,4 +24,14 @@ public class BoardTest {
         assertEquals("A", board.findByCoords("2", "A").getYCoord().getIdentifier());
         assertEquals("2", board.findByCoords("2", "A").getXCoord().getIdentifier());
     }
+
+    @Test
+    public void boardColorTest() {
+        board.findByCoords("2","B").setHasShip(true);
+        board.findByCoords("3","B").setHasShip(true);
+        board.findByCoords("4","B").setHasShip(true);
+        board.findByCoords("3","B").setStatus(PointStatus.HIT);
+        board.findByCoords("4","C").setStatus(PointStatus.MISS);
+        board.display();
+    }
 }

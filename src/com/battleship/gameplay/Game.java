@@ -2,13 +2,13 @@ package com.battleship.gameplay;
 
 import com.battleship.board.Board;
 import com.battleship.board.ConsoleColors;
+import com.battleship.board.Ship;
 import com.battleship.player.Player;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Scanner;
 
 import static com.battleship.board.ConsoleColors.*;
 
@@ -20,8 +20,8 @@ public class Game {
     private final Board oppBoard = new Board();
     private final Opponent opponent = new Opponent();
 
-    private final int numberOfPlayerShips = 0;
-    private final int numberOfOpponentShips = 0;
+    private final int numberOfPlayerShips = 1;
+    private final int numberOfOpponentShips = 1;
 
     public void loadBanner() {
         try {
@@ -49,21 +49,22 @@ public class Game {
     public void initialize() {
         boardDisplay();
         player.inputFromUser();
+        Ship ship = new Ship("Carrier", 5);
         player.placeShip();
-        //opponent.placeShips();
+        opponent.placeShip(oppBoard,ship);
 
     }
 
 
     public void battle() {
-        do {
+        while (numberOfPlayerShips != 0 && numberOfOpponentShips != 0) {
             playerTurn();
             opponentTurn();
             boardDisplay();
 
             System.out.printf("You have %d ships left.\n", numberOfPlayerShips);
             System.out.printf("Opponent has %d ships left.\n", numberOfOpponentShips);
-        } while (numberOfPlayerShips == 0 || numberOfOpponentShips == 0);
+        }
     }
 
     private void boardDisplay() {

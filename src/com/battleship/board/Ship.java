@@ -7,7 +7,7 @@ public class Ship {
     private int hitCount = 0;
     private boolean isDestroyed = false;
 
-    Ship(String name, int length) {
+    public Ship(String name, int length) {
         setName(name);
         setLength(length);
     }

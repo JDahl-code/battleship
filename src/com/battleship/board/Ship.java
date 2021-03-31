@@ -1,6 +1,6 @@
 package com.battleship.board;
 
-class Ship {
+public class Ship {
 
     private String name;
     private int length;

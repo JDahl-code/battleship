@@ -1,6 +1,7 @@
 package com.battleship.gameplay;
 
 import com.battleship.board.Board;
+import com.battleship.board.ConsoleColors;
 import com.battleship.player.Player;
 
 import java.io.IOException;
@@ -9,13 +10,17 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Scanner;
 
+import static com.battleship.board.ConsoleColors.*;
+
 public class Game {
     public static void loadBanner()  {
         try {
             List<String> lines = Files.readAllLines(Path.of("./resources/banner.txt"));
+            ConsoleColors.changeTo(BLUE);
             for(String line : lines){
                 System.out.println(line);
             }
+            ConsoleColors.reset();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -9,6 +9,7 @@ import com.battleship.board.PointStatus;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -16,7 +17,6 @@ public class Opponent {
 
     private boolean shipFound = false;
     private Point initialHit;
-    private int maxLength = 5;
     private Point[][] branches;
     private int hitsInARow = 0;
     private int branchToken;
@@ -143,7 +143,8 @@ public class Opponent {
     }
 
     public void onInitialHit(Board board) {
-        branches = makeBranches(board, initialHit, maxLength);
+        int maxShipLength = Collections.max(board.remainingShips).getLength();
+        branches = makeBranches(board, initialHit, maxShipLength);
         branchToken = (int) (Math.random() * 4) + 1;
     }
 
@@ -198,9 +199,4 @@ public class Opponent {
             }
         }
     }
-
-    /*
-     * To Do:
-     *      - update maxLength based on the length of the longest remaining ship. Maybe make a list or array of ships in respective Board instances.
-     */
 }

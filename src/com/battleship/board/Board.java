@@ -7,7 +7,12 @@ import static com.battleship.board.ConsoleColors.*;
 
 public class Board {
     private final List<Point> points = new ArrayList<>();
-    private Point [] chosenShipPoints;
+    public Ship carrier = new Ship("carrier", 5);
+    public Ship battleship = new Ship("battleship", 4);
+    public Ship destroyer = new Ship("destroyer", 3);
+    public Ship sub = new Ship("submarine", 3);
+    public Ship patrolBoat = new Ship("patrol boat", 2);
+    public List<Ship> remainingShips = new ArrayList<>();
 
     public Board() {
         for (X_Coord x : X_Coord.values()) {
@@ -15,6 +20,11 @@ public class Board {
                 points.add(new Point(x, y));
             }
         }
+        remainingShips.add(carrier);
+        remainingShips.add(battleship);
+        remainingShips.add(destroyer);
+        remainingShips.add(sub);
+        remainingShips.add(patrolBoat);
     }
 
 
@@ -94,13 +104,5 @@ public class Board {
 
     public List<Point> getPoints() {
         return points;
-    }
-
-    public Point[] getChosenShipPoints() {
-        return chosenShipPoints;
-    }
-
-    public void setChosenShipPoints(Point[] chosenShipPoints) {
-        this.chosenShipPoints = chosenShipPoints;
     }
 }

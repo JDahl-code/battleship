@@ -52,7 +52,6 @@ public class Game {
         Ship ship = new Ship("Carrier", 5);
         player.placeShip();
         opponent.placeShip(oppBoard,ship);
-
     }
 
 

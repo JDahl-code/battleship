@@ -21,8 +21,11 @@ public class Game {
                 System.out.println(line);
             }
             ConsoleColors.reset();
+            Thread.sleep(2000);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (InterruptedException e){
+            throw new RuntimeException("Unexpected interrupt", e);
         }
 
     }
@@ -42,6 +45,9 @@ public class Game {
 
         playerBoard.display();
         System.out.println("\n     Your Board");
+
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
 
     }
 

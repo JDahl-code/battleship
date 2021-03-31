@@ -1,6 +1,6 @@
 package com.battleship.board;
 
-public class Ship {
+public class Ship implements Comparable<Ship> {
 
     private String name;
     private int length;
@@ -13,10 +13,15 @@ public class Ship {
     }
 
     void hit() {
-        hitCount += 1;
+        setHitCount(hitCount + 1);
         if (getHitCount() == getLength()) {
             setDestroyed(true);
         }
+    }
+
+    @Override
+    public int compareTo(Ship other) {
+        return length - other.length;
     }
 
     public String getName() {

@@ -2,6 +2,7 @@ package com.battleship.gameplay;
 
 import com.battleship.board.Board;
 import com.battleship.board.ConsoleColors;
+import com.battleship.board.Point;
 import com.battleship.player.Player;
 
 import java.io.IOException;
@@ -50,7 +51,7 @@ public class Game {
         boardDisplay();
         player.inputFromUser();
         player.placeShip();
-        opponent.placeShips();
+        //opponent.placeShips();
 
     }
 

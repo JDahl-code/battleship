@@ -7,6 +7,7 @@ import static com.battleship.board.ConsoleColors.*;
 
 public class Board {
     private final List<Point> points = new ArrayList<>();
+    private Point [] chosenShipPoints;
 
     public Board() {
         for (X_Coord x : X_Coord.values()) {
@@ -83,5 +84,13 @@ public class Board {
 
     public List<Point> getPoints() {
         return points;
+    }
+
+    public Point[] getChosenShipPoints() {
+        return chosenShipPoints;
+    }
+
+    public void setChosenShipPoints(Point[] chosenShipPoints) {
+        this.chosenShipPoints = chosenShipPoints;
     }
 }

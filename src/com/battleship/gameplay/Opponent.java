@@ -101,14 +101,30 @@ public class Opponent {
         };
     }
 
-    public void placeShips(Board board, Ship ship) {
+    public void placeShip(Board board, Ship ship) {
         boolean valid = false;
 
         while (!valid) {
             Point startPoint = pickRandomPoint(board);
             Point[][] branches = makeBranches(board, startPoint, ship.getLength());
+            Point[] branch = branches[(int) (Math.random() * 4)];
 
+            if (branch.length == ship.getLength()) {
+                int unoccupied = 0;
 
+                for (Point point : branch) {
+                    if (!point.hasShip()) {
+                        unoccupied++;
+                    }
+                }
+                if (unoccupied == ship.getLength()) {
+                    for (Point point : branch) {
+                        point.setShip(ship);
+                        point.setHasShip(true);
+                    }
+                    valid = true;
+                }
+            }
         }
     }
 
@@ -184,10 +200,6 @@ public class Opponent {
 
     /*
      * To Do:
-     *      - copy the list of points from board to make a list of valid points, from which points are removed after selection.
-     *      - handle or prevent occurrences of empty branches or branches with fewer than expected points
-     *      - handle not having all four branches
      *      - update maxLength based on the length of the longest remaining ship. Maybe make a list or array of ships in respective Board instances.
-     *      - ship placement.
      */
 }

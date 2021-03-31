@@ -13,17 +13,17 @@ import java.util.Scanner;
 import static com.battleship.board.ConsoleColors.*;
 
 public class Game {
-    static String userName = "name";
-    static Board playerBoard = new Board();
-    static Player player = new Player(playerBoard, userName);
+     String userName = "name";
+     Board playerBoard = new Board();
+     Player player = new Player(playerBoard, userName);
 
-    static Board oppBoard = new Board();
-    static Opponent opponent = new Opponent();
+     Board oppBoard = new Board();
+     Opponent opponent = new Opponent();
 
-    static int numberOfPlayerShips = 0;
-    static int numberOfOpponentShips =0;
+     int numberOfPlayerShips = 0;
+     int numberOfOpponentShips =0;
 
-    public static void loadBanner() {
+    public void loadBanner() {
         try {
             List<String> lines = Files.readAllLines(Path.of("./resources/banner.txt"));
             ConsoleColors.changeTo(BLUE);
@@ -41,12 +41,12 @@ public class Game {
     }
 
 
-    public static void clearScreen() {
+    public  void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
-    public static void initialize() {
+    public  void initialize() {
         boardDisplay();
         player.inputFromUser();
         player.placeShip();
@@ -56,7 +56,7 @@ public class Game {
 
 
 
-    public static void battle(){
+    public  void battle(){
         do{
             playerTurn();
             opponentTurn();
@@ -67,7 +67,7 @@ public class Game {
         } while(numberOfPlayerShips == 0 || numberOfOpponentShips == 0);
     }
 
-    private static void boardDisplay() {
+    private  void boardDisplay() {
         System.out.print("    Opponent Board");
         oppBoard.display();
 
@@ -75,17 +75,17 @@ public class Game {
         System.out.println("\n     Your Board");
     }
 
-    private static void playerTurn(){
+    private  void playerTurn(){
 
 
 
     }
 
-    public static void opponentTurn(){
+    private  void opponentTurn(){
 
     }
 
-    public static void over() {
+    public  void over() {
         if (numberOfPlayerShips == 0) {
             System.out.println("Sorry, you lost the battle.");
         }else if (numberOfOpponentShips == 0){

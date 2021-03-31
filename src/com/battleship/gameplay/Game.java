@@ -50,7 +50,7 @@ public class Game {
         boardDisplay();
         player.inputFromUser();
         player.placeShip();
-        opponent.placeShips();
+        //opponent.placeShips();
 
     }
 

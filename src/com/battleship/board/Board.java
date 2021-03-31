@@ -41,6 +41,12 @@ public class Board {
      */
     public void display() {
 
+        String shipBody = "*";
+        String hit = "x";
+        String miss = "o";
+        String empty = " ";
+        String status;
+
         String[] numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         String[] chars = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
         // The y coord line in yellow color
@@ -60,19 +66,23 @@ public class Board {
             ConsoleColors.reset();
 
             for (int j = 0; j < 10; j++) {
-                //System.out.printf("%s|", findByCoords(chars[i],numbers[j]).getStatus().getSymbol());
+
                 //color point status symbol first
-                String status = findByCoords( numbers[j],chars[i]).getStatus().getSymbol();
-                switch (status) {
-                    case " ":
-                        break;
-                    case "x":
-                        ConsoleColors.changeTo(RED);
-                        break;
-                    case "o":
-                        ConsoleColors.changeTo(GREEN);
-                        break;
+                Point point = findByCoords( numbers[j],chars[i]);
+
+                if (point.hasShip() && point.getStatus()== PointStatus.UNCHECKED ){
+                    status = shipBody;
+                    ConsoleColors.changeTo(WHITE);
+                } else if(point.getStatus() == PointStatus.HIT){
+                    status = hit;
+                    ConsoleColors.changeTo(RED);
+                }else if (point.getStatus() == PointStatus.MISS) {
+                    status = miss;
+                    ConsoleColors.changeTo(GREEN);
+                }else{
+                    status = empty;
                 }
+
                 System.out.print(status);
                 ConsoleColors.changeTo(WHITE);
                 System.out.print("|");

@@ -1,16 +1,12 @@
 package com.battleship.board;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
-import static com.battleship.board.X_Coord.*;
-import static com.battleship.board.Y_Coord.*;
 import static com.battleship.board.ConsoleColors.*;
 
 public class Board {
-    private List<Point> points = new ArrayList<>();
+    private final List<Point> points = new ArrayList<>();
 
     public Board() {
         for (X_Coord x : X_Coord.values()) {

@@ -22,6 +22,7 @@ public class Opponent {
     private int branchToken;
     private int missToken = 0;
 
+
     Point pickRandomPoint(Board board) {
         int rand = (int) (Math.random() * 100);
         return board.getPoints().stream().filter(point -> point.getStatus() == PointStatus.Unchecked)

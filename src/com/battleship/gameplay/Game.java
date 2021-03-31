@@ -51,7 +51,7 @@ public class Game {
         player.inputFromUser();
         Ship ship = new Ship("Carrier", 5);
         player.placeShip();
-        opponent.placeShip(oppBoard,ship)
+        opponent.placeShip(oppBoard,ship);
     }
 
 

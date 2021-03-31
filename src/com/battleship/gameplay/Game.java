@@ -3,7 +3,24 @@ package com.battleship.gameplay;
 import com.battleship.board.Board;
 import com.battleship.player.Player;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+import java.util.Scanner;
+
 public class Game {
+    public static void loadBanner()  {
+        try {
+            List<String> lines = Files.readAllLines(Path.of("./resources/banner.txt"));
+            for(String line : lines){
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     public static void initialize(){
 

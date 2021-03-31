@@ -13,15 +13,15 @@ import java.util.Scanner;
 import static com.battleship.board.ConsoleColors.*;
 
 public class Game {
-     String userName = "name";
-     Board playerBoard = new Board();
-     Player player = new Player(playerBoard, userName);
+    private final String userName = "name";
+    private final Board playerBoard = new Board();
+    private final Player player = new Player(playerBoard, userName);
 
-     Board oppBoard = new Board();
-     Opponent opponent = new Opponent();
+    private final Board oppBoard = new Board();
+    private final Opponent opponent = new Opponent();
 
-     int numberOfPlayerShips = 0;
-     int numberOfOpponentShips =0;
+    private final int numberOfPlayerShips = 0;
+    private final int numberOfOpponentShips = 0;
 
     public void loadBanner() {
         try {
@@ -41,12 +41,12 @@ public class Game {
     }
 
 
-    public  void clearScreen() {
+    public void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
-    public  void initialize() {
+    public void initialize() {
         boardDisplay();
         player.inputFromUser();
         player.placeShip();
@@ -55,19 +55,18 @@ public class Game {
     }
 
 
-
-    public  void battle(){
-        do{
+    public void battle() {
+        do {
             playerTurn();
             opponentTurn();
             boardDisplay();
 
             System.out.printf("You have %d ships left.\n", numberOfPlayerShips);
-            System.out.printf("Opponent has %d ships left.\n",numberOfOpponentShips);
-        } while(numberOfPlayerShips == 0 || numberOfOpponentShips == 0);
+            System.out.printf("Opponent has %d ships left.\n", numberOfOpponentShips);
+        } while (numberOfPlayerShips == 0 || numberOfOpponentShips == 0);
     }
 
-    private  void boardDisplay() {
+    private void boardDisplay() {
         System.out.print("    Opponent Board");
         oppBoard.display();
 
@@ -75,20 +74,19 @@ public class Game {
         System.out.println("\n     Your Board");
     }
 
-    private  void playerTurn(){
-
+    private void playerTurn() {
 
 
     }
 
-    private  void opponentTurn(){
+    private void opponentTurn() {
 
     }
 
-    public  void over() {
+    public void over() {
         if (numberOfPlayerShips == 0) {
             System.out.println("Sorry, you lost the battle.");
-        }else if (numberOfOpponentShips == 0){
+        } else if (numberOfOpponentShips == 0) {
             System.out.println("Yeah, you won the battle.");
         }
     }

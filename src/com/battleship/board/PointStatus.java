@@ -1,7 +1,7 @@
 package com.battleship.board;
 
 public enum PointStatus {
-    Unchecked(" "), Hit("x"), Miss("o");
+    HIT("x"), MISS("o"), SHIPBODY("█"), UNCHECKED(" ");
 
     private String symbol;
 

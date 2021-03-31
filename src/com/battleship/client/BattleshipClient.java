@@ -4,11 +4,12 @@ import com.battleship.gameplay.Game;
 
 class BattleshipClient {
     public static void main(String[] args) {
-        Game.loadBanner();
-        Game.clearScreen();
-        Game.initialize();
+        Game game = new Game();
+        game.loadBanner();
+        game.clearScreen();
+        game.initialize();
 
-        Game.battle();
-        Game.over();
+        game.battle();
+        game.over();
    }
 }

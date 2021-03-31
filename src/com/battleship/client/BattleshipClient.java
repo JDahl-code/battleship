@@ -7,6 +7,7 @@ class BattleshipClient {
         Game.loadBanner();
         Game.clearScreen();
         Game.initialize();
+
         Game.battle();
         Game.over();
    }

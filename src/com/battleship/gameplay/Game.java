@@ -20,6 +20,9 @@ public class Game {
     static Board oppBoard = new Board();
     static Opponent opponent = new Opponent();
 
+    static int numberOfPlayerShips = 0;
+    static int numberOfOpponentShips =0;
+
     public static void loadBanner() {
         try {
             List<String> lines = Files.readAllLines(Path.of("./resources/banner.txt"));
@@ -47,18 +50,21 @@ public class Game {
         boardDisplay();
         player.inputFromUser();
         player.placeShip();
-        Opponent.placeShip();
+        opponent.placeShips();
 
     }
 
 
 
-    public void battle(){
-        playerTurn();
-        opponentTurn();
-        boardDisplay();
-        System.out.printf("You have %d ships left.", numberofShips);
+    public static void battle(){
+        do{
+            playerTurn();
+            opponentTurn();
+            boardDisplay();
 
+            System.out.printf("You have %d ships left.\n", numberOfPlayerShips);
+            System.out.printf("Opponent has %d ships left.\n",numberOfOpponentShips);
+        } while(numberOfPlayerShips == 0 || numberOfOpponentShips == 0);
     }
 
     private static void boardDisplay() {
@@ -79,5 +85,12 @@ public class Game {
 
     }
 
+    public static void over() {
+        if (numberOfPlayerShips == 0) {
+            System.out.println("Sorry, you lost the battle.");
+        }else if (numberOfOpponentShips == 0){
+            System.out.println("Yeah, you won the battle.");
+        }
+    }
 
 }

@@ -19,10 +19,10 @@ public class PlayerDisplay {
         for (Y_Coord y : Y_Coord.values()) {
             System.out.printf("%s", y.getIdentifier());
             for (X_Coord x : X_Coord.values()) {
-                if (board.findByCoords(x.getIdentifier(), y.getIdentifier()).hasShip() && board.findByCoords(x.getIdentifier(), y.getIdentifier()).getStatus() == PointStatus.Unchecked) {
+                if (board.findByCoords(x.getIdentifier(), y.getIdentifier()).hasShip() && board.findByCoords(x.getIdentifier(), y.getIdentifier()).getStatus() == PointStatus.UNCHECKED) {
                     System.out.printf("|%s", symbol1);
                 }
-                else if (board.findByCoords(x.getIdentifier(), y.getIdentifier()).hasShip() && board.findByCoords(x.getIdentifier(), y.getIdentifier()).getStatus() == PointStatus.Hit){
+                else if (board.findByCoords(x.getIdentifier(), y.getIdentifier()).hasShip() && board.findByCoords(x.getIdentifier(), y.getIdentifier()).getStatus() == PointStatus.HIT){
                     System.out.printf("|%s", symbol2);
                 }
                 else {

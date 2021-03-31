@@ -25,7 +25,7 @@ public class Opponent {
 
     Point pickRandomPoint(Board board) {
         int rand = (int) (Math.random() * 100);
-        return board.getPoints().stream().filter(point -> point.getStatus() == PointStatus.Unchecked)
+        return board.getPoints().stream().filter(point -> point.getStatus() == PointStatus.UNCHECKED)
                     .collect(Collectors.toCollection(ArrayList::new)).get(rand);
     }
 
@@ -44,7 +44,7 @@ public class Opponent {
                                 startPoint.getXCoord().getIdentifier(), // same x-coordinate
                                 Y_Coord.values()[startPoint.getYCoord().ordinal() - i].getIdentifier() // different y-coordinate (decreasing ordinal)
                         );
-                        if (nextInBranch.getStatus() == PointStatus.Unchecked) {
+                        if (nextInBranch.getStatus() == PointStatus.UNCHECKED) {
                             result[i] = nextInBranch;
                         } else {
                             break addToBranches;
@@ -55,7 +55,7 @@ public class Opponent {
                                 startPoint.getXCoord().getIdentifier(), // same x-coordinate
                                 Y_Coord.values()[startPoint.getYCoord().ordinal() + i].getIdentifier() // different y-coordinate (increasing ordinal)
                         );
-                        if (nextInBranch.getStatus() == PointStatus.Unchecked) {
+                        if (nextInBranch.getStatus() == PointStatus.UNCHECKED) {
                             result[i] = nextInBranch;
                         } else {
                             break addToBranches;
@@ -66,7 +66,7 @@ public class Opponent {
                                 X_Coord.values()[startPoint.getXCoord().ordinal() - i].getIdentifier(), // different x-coordinate (decreasing ordinal
                                 startPoint.getYCoord().getIdentifier() // same y-coordinate
                         );
-                        if (nextInBranch.getStatus() == PointStatus.Unchecked) {
+                        if (nextInBranch.getStatus() == PointStatus.UNCHECKED) {
                             result[i] = nextInBranch;
                         } else {
                             break addToBranches;
@@ -77,7 +77,7 @@ public class Opponent {
                                 X_Coord.values()[startPoint.getXCoord().ordinal() + i].getIdentifier(), // different x
                                 startPoint.getYCoord().getIdentifier() // same y
                         );
-                        if (nextInBranch.getStatus() == PointStatus.Unchecked) {
+                        if (nextInBranch.getStatus() == PointStatus.UNCHECKED) {
                             result[i] = nextInBranch;
                         } else {
                             break addToBranches;

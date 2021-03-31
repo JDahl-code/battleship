@@ -8,7 +8,7 @@ public class Point {
     private Y_Coord yCoord;
     private Ship ship;
     private boolean hasShip = false;
-    private PointStatus status = Unchecked;
+    private PointStatus status = UNCHECKED;
 
     Point(X_Coord xCoord, Y_Coord yCoord) {
         setXCoord(xCoord);
@@ -17,12 +17,12 @@ public class Point {
 
     public void target() throws RepeatGuessException {
         
-        if (status == Unchecked) {
+        if (status == UNCHECKED) {
             if (hasShip) {
                 ship.hit();
-                setStatus(Hit);
+                setStatus(HIT);
             } else {
-                setStatus(Miss);
+                setStatus(MISS);
             }
         } else {
             throw new RepeatGuessException("You have already selected that point. Try again.");

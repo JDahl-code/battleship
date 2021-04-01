@@ -55,7 +55,10 @@ class Player {
             }
             if (emptySpaces == ship.getLength()) {
                 validBranch = true;
-            } else System.out.println("You can't put a ship there.  Not enough room");
+            } else {
+                System.out.println("You can't put a ship there.  Not enough room");
+                emptySpaces = 0;
+            }
         }
 
         // pass ship to point

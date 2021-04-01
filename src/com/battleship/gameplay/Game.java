@@ -113,6 +113,8 @@ public class Game {
     public void over() {
         if (playerBoard.remainingShips.size() == 0) {
             System.out.println("Sorry, you lost the battle.");
+            oppBoard.display(true);
+            playerBoard.display(true);
         } else if (oppBoard.remainingShips.size() == 0) {
             System.out.println("Yeah, you won the battle.");
         }

@@ -1,7 +1,7 @@
 package com.battleship.board;
 
-import org.junit.Test;
 import com.battleship.gameplay.Opponent;
+import org.junit.Test;
 
 public class PlayerDisplay {
 
@@ -21,11 +21,9 @@ public class PlayerDisplay {
             for (X_Coord x : X_Coord.values()) {
                 if (board.findByCoords(x.getIdentifier(), y.getIdentifier()).hasShip() && board.findByCoords(x.getIdentifier(), y.getIdentifier()).getStatus() == PointStatus.UNCHECKED) {
                     System.out.printf("|%s", symbol1);
-                }
-                else if (board.findByCoords(x.getIdentifier(), y.getIdentifier()).hasShip() && board.findByCoords(x.getIdentifier(), y.getIdentifier()).getStatus() == PointStatus.HIT){
+                } else if (board.findByCoords(x.getIdentifier(), y.getIdentifier()).hasShip() && board.findByCoords(x.getIdentifier(), y.getIdentifier()).getStatus() == PointStatus.HIT) {
                     System.out.printf("|%s", symbol2);
-                }
-                else {
+                } else {
                     System.out.printf("|%s", symbol3);
                 }
             }

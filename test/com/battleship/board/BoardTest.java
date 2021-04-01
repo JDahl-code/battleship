@@ -3,7 +3,7 @@ package com.battleship.board;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class BoardTest {
 
@@ -27,11 +27,11 @@ public class BoardTest {
 
     @Test
     public void boardColorTest() {
-        board.findByCoords("2","B").setHasShip(true);
-        board.findByCoords("3","B").setHasShip(true);
-        board.findByCoords("4","B").setHasShip(true);
-        board.findByCoords("3","B").setStatus(PointStatus.HIT);
-        board.findByCoords("4","C").setStatus(PointStatus.MISS);
+        board.findByCoords("2", "B").setHasShip(true);
+        board.findByCoords("3", "B").setHasShip(true);
+        board.findByCoords("4", "B").setHasShip(true);
+        board.findByCoords("3", "B").setStatus(PointStatus.HIT);
+        board.findByCoords("4", "C").setStatus(PointStatus.MISS);
         board.display();
     }
 }

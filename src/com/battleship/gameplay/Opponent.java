@@ -1,11 +1,6 @@
 package com.battleship.gameplay;
 
-import com.battleship.board.Board;
-import com.battleship.board.Point;
-import com.battleship.board.Ship;
-import com.battleship.board.X_Coord;
-import com.battleship.board.Y_Coord;
-import com.battleship.board.PointStatus;
+import com.battleship.board.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +20,7 @@ public class Opponent {
 
     Point pickRandomPoint(Board board) {
         ArrayList<Point> validPoints = board.getPoints().stream().filter(point -> point.getStatus() == PointStatus.UNCHECKED)
-                                            .collect(Collectors.toCollection(ArrayList::new));
+                .collect(Collectors.toCollection(ArrayList::new));
         int rand = (int) (Math.random() * validPoints.size());
         return validPoints.get(rand);
     }
@@ -84,8 +79,7 @@ public class Opponent {
                             break addToBranches;
                         }
                 }
-            }
-            catch (ArrayIndexOutOfBoundsException e) {
+            } catch (ArrayIndexOutOfBoundsException e) {
                 break;
             }
         }
@@ -95,7 +89,7 @@ public class Opponent {
     }
 
     Point[][] makeBranches(Board board, Point startPoint, int length) {
-        return new Point[][] {
+        return new Point[][]{
                 makeBranch(board, startPoint, length, "up"),
                 makeBranch(board, startPoint, length, "down"),
                 makeBranch(board, startPoint, length, "left"),
@@ -169,7 +163,7 @@ public class Opponent {
     public void followUp() {
         switchBranch();
 
-        if (branches[branchToken -1].length > hitsInARow) {
+        if (branches[branchToken - 1].length > hitsInARow) {
             Point point = branches[branchToken - 1][hitsInARow];
             point.target();
             if (point.hasShip()) {
@@ -179,8 +173,7 @@ public class Opponent {
                 hitsInARow = 1;
                 missToken++;
             }
-        }
-        else {
+        } else {
             hitsInARow = 1;
             missToken++;
             followUp();
@@ -193,8 +186,7 @@ public class Opponent {
             if (shipFound) {
                 onInitialHit(board);
             }
-        }
-        else {
+        } else {
             followUp();
             if (initialHit.getShip().isDestroyed()) {
                 board.remainingShips.remove(initialHit.getShip());

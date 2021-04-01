@@ -1,5 +1,9 @@
 package com.battleship.board;
 
+/*
+ * reference: https://en.wikipedia.org/wiki/ANSI_escape_code
+ */
+
 public enum ConsoleColors {
     //color reset
     RESET("\033[0m"),

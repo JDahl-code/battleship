@@ -20,7 +20,7 @@ class Player {
         while (!validPoint) {
             try {
                 startPoint = returnPointFromInput(board);
-                if (startPoint != null) {
+                if (startPoint != null && !startPoint.hasShip()) {
                     validPoint = true;
                 } else {
                     System.out.println("Invalid input. Please enter a coordinate pair. Ex: 1A (Case insensitive).");

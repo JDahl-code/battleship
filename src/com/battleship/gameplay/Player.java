@@ -51,6 +51,7 @@ class Player {
         // pass ship to point
         for (Point point : branch) {
             point.setShip(ship);
+            point.setHasShip(true);
         }
     }
 
@@ -103,6 +104,18 @@ class Player {
             return input;
         }
         else throw new IllegalArgumentException("Invalid argument.  Please choose up, down, left or right");
+    }
+
+    public void takeTurn (Board board){
+        boolean valid = false;
+        while (!valid) {
+            try {
+                returnPointFromInput(board).target();
+                valid = true;
+            } catch (IllegalArgumentException | NoSuchElementException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     Point[] makeBranch(Board board, Point startPoint, int length, String direction) {

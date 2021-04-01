@@ -198,6 +198,7 @@ public class Opponent {
             followUp();
             if (initialHit.getShip().isDestroyed()) {
                 shipFound = false;
+                hitsInARow = 0;
             }
         }
     }

@@ -3,7 +3,6 @@ package com.battleship.gameplay;
 import com.battleship.board.Board;
 import com.battleship.board.ConsoleColors;
 import com.battleship.board.Ship;
-import com.battleship.player.Player;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,7 +14,7 @@ import static com.battleship.board.ConsoleColors.*;
 public class Game {
     private final String userName = "name";
     private final Board playerBoard = new Board();
-    private final Player player = new Player(playerBoard, userName);
+    private final Player player = new Player();
 
     private final Board oppBoard = new Board();
     private final Opponent opponent = new Opponent();
@@ -48,9 +47,8 @@ public class Game {
 
     public void initialize() {
         boardDisplay();
-        player.inputFromUser();
         Ship ship = new Ship("Carrier", 5);
-        player.placeShip();
+        player.placeShip(playerBoard, ship);
         opponent.placeShip(oppBoard,ship);
     }
 

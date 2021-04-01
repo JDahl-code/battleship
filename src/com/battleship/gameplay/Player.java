@@ -75,10 +75,10 @@ class Player {
         String y = null;
         if (input.length() == 2) {
             x = input.substring(0, 1);
-            y = input.substring(1).toLowerCase();
+            y = input.substring(1).toUpperCase();
         } else if (input.length() == 3) {
             x = input.substring(0, 2);
-            y = input.substring(2).toLowerCase();
+            y = input.substring(2).toUpperCase();
         }
         try {
             return board.findByCoords(x, y);

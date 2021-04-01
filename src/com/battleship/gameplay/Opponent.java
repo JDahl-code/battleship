@@ -197,6 +197,7 @@ public class Opponent {
         else {
             followUp();
             if (initialHit.getShip().isDestroyed()) {
+                board.remainingShips.remove(initialHit.getShip());
                 shipFound = false;
                 hitsInARow = 0;
             }

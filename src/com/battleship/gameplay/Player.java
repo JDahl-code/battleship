@@ -120,17 +120,27 @@ class Player {
         while (!valid) {
             try {
                 Point point = returnPointFromInput(board);
-                point.target();
-                valid = true;
-                if (point.hasShip()) {
-                    if (point.getShip().getHitCount() == point.getShip().getLength()) {
-                        point.getShip().setDestroyed(true);
-                    }
-                    if (point.getShip().isDestroyed()) {
-                        System.out.printf("You destroyed my %s!\n", point.getShip().getName());
-                        board.remainingShips.remove(point.getShip());
+                if (point != null) {
+                    if (point.getStatus() == PointStatus.UNCHECKED) {
+                        point.target();
+                        valid = true;
+                        if (point.hasShip()) {
+                            if (point.getShip().getHitCount() == point.getShip().getLength()) {
+                                point.getShip().setDestroyed(true);
+                            }
+                            if (point.getShip().isDestroyed()) {
+                                System.out.printf("You destroyed my %s!\n", point.getShip().getName());
+                                board.remainingShips.remove(point.getShip());
 
+                            }
+                        }
                     }
+                    else {
+                        System.out.println("You already picked that point. Try again.");
+                    }
+                }
+                else {
+                    System.out.println("Invalid input. Please enter a coordinate pair. Ex: 1A (Case insensitive).");
                 }
             } catch (IllegalArgumentException | NoSuchElementException e) {
                 System.out.println(e.getMessage());

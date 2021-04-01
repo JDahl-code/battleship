@@ -113,8 +113,13 @@ class Player {
                 Point point = returnPointFromInput(board);
                 point.target();
                 valid = true;
+                if(point.getShip().getHitCount() == point.getShip().getLength()){
+                    point.getShip().setDestroyed(true);
+                }
                 if (point.getShip().isDestroyed()) {
-                    System.out.printf("You destroyed my %s!", point.getShip().getName());
+                    System.out.printf("You destroyed my %s!\n", point.getShip().getName());
+                    board.remainingShips.remove(point.getShip());
+
                 }
             } catch (IllegalArgumentException | NoSuchElementException e) {
                 System.out.println(e.getMessage());

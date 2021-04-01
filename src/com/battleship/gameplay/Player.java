@@ -30,6 +30,7 @@ class Player {
             }
         }
 
+        int emptySpaces = 0;
         boolean validBranch = false;
         Point[] branch = null;
         while (!validBranch) {
@@ -46,7 +47,12 @@ class Player {
             }
 
             branch = makeBranch(board, startPoint, ship.getLength(), direction);
-            if (branch.length == ship.getLength()) {
+            for (Point point : branch) {
+                if (!point.hasShip()) {
+                    emptySpaces++;
+                }
+            }
+            if (emptySpaces == ship.getLength()) {
                 validBranch = true;
             } else System.out.println("You can't put a ship there.  Not enough room");
         }

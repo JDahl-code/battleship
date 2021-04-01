@@ -21,7 +21,7 @@ public class BoardTest {
 
     @Test
     public void findPointsTest() {
-        assertEquals("A", board.findByCoords("8", "A").getYCoord().getIdentifier());
+        assertEquals("A", board.findByCoords("8", "1").getYCoord().getIdentifier());
         assertEquals("2", board.findByCoords("2", "A").getXCoord().getIdentifier());
     }
 

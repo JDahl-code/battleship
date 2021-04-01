@@ -90,9 +90,11 @@ public class Game {
     private void boardDisplay() {
 
         System.out.print("    Opponent Board");
-        oppBoard.display();
 
-        playerBoard.display();
+        oppBoard.display(false);
+
+
+        playerBoard.display(true);
         System.out.println("\n     Your Board");
     }
 

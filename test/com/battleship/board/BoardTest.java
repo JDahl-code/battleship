@@ -32,6 +32,6 @@ public class BoardTest {
         board.findByCoords("4", "B").setHasShip(true);
         board.findByCoords("3", "B").setStatus(PointStatus.HIT);
         board.findByCoords("4", "C").setStatus(PointStatus.MISS);
-        board.display();
+        board.display(true);
     }
 }

@@ -51,7 +51,7 @@ public class Board {
         I| | | | | | | | | | |
         J| | | | | | | | | | |
      */
-    public void display() {
+    public void display(boolean isPlayer) {
 
         String shipBody = "*";
         String hit = "x";
@@ -83,7 +83,7 @@ public class Board {
                 Point point = findByCoords(numbers[j], chars[i]);
 
                 if (point.hasShip() && point.getStatus() == PointStatus.UNCHECKED) {
-                    status = shipBody;
+                    status = isPlayer? shipBody: empty;
                     ConsoleColors.changeTo(BRIGHTWHITE);
                 } else if (point.getStatus() == PointStatus.HIT) {
                     status = hit;

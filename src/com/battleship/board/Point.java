@@ -4,13 +4,13 @@ import static com.battleship.board.PointStatus.*;
 
 public class Point {
 
-    private X_Coord xCoord;
-    private Y_Coord yCoord;
+    private XCoord xCoord;
+    private YCoord yCoord;
     private Ship ship;
     private boolean hasShip = false;
     private PointStatus status = UNCHECKED;
 
-    Point(X_Coord xCoord, Y_Coord yCoord) {
+    Point(XCoord xCoord, YCoord yCoord) {
         setXCoord(xCoord);
         setYCoord(yCoord);
     }
@@ -29,19 +29,19 @@ public class Point {
         }
     }
 
-    public X_Coord getXCoord() {
+    public XCoord getXCoord() {
         return xCoord;
     }
 
-    public void setXCoord(X_Coord xCoord) {
+    public void setXCoord(XCoord xCoord) {
         this.xCoord = xCoord;
     }
 
-    public Y_Coord getYCoord() {
+    public YCoord getYCoord() {
         return yCoord;
     }
 
-    public void setYCoord(Y_Coord yCoord) {
+    public void setYCoord(YCoord yCoord) {
         this.yCoord = yCoord;
     }
 

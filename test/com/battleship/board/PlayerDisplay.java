@@ -12,13 +12,13 @@ public class PlayerDisplay {
         String symbol3 = " ";
 
         System.out.print("  ");
-        for (X_Coord x : X_Coord.values()) {
+        for (XCoord x : XCoord.values()) {
             System.out.print(x.getIdentifier() + " ");
         }
         System.out.print("\n");
-        for (Y_Coord y : Y_Coord.values()) {
+        for (YCoord y : YCoord.values()) {
             System.out.printf("%s", y.getIdentifier());
-            for (X_Coord x : X_Coord.values()) {
+            for (XCoord x : XCoord.values()) {
                 if (board.findByCoords(x.getIdentifier(), y.getIdentifier()).hasShip() && board.findByCoords(x.getIdentifier(), y.getIdentifier()).getStatus() == PointStatus.UNCHECKED) {
                     System.out.printf("|%s", symbol1);
                 }

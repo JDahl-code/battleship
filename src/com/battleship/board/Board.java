@@ -15,8 +15,8 @@ public class Board {
     public List<Ship> remainingShips = new ArrayList<>();
 
     public Board() {
-        for (X_Coord x : X_Coord.values()) {
-            for (Y_Coord y : Y_Coord.values()) {
+        for (XCoord x : XCoord.values()) {
+            for (YCoord y : YCoord.values()) {
                 points.add(new Point(x, y));
             }
         }

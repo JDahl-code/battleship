@@ -1,6 +1,6 @@
 package com.battleship.board;
 
-public enum X_Coord {
+public enum XCoord {
     One("1"),
     Two("2"),
     Three("3"),
@@ -14,7 +14,7 @@ public enum X_Coord {
 
     private final String identifier;
 
-    X_Coord(String identifier) {
+    XCoord(String identifier) {
         this.identifier = identifier;
     }
 

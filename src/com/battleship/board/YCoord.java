@@ -1,6 +1,6 @@
 package com.battleship.board;
 
-public enum Y_Coord {
+public enum YCoord {
     A("A"),
     B("B"),
     C("C"),
@@ -14,7 +14,7 @@ public enum Y_Coord {
 
     private final String identifier;
 
-    Y_Coord(String identifier) {
+    YCoord(String identifier) {
         this.identifier = identifier;
     }
 

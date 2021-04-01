@@ -3,8 +3,8 @@ package com.battleship.gameplay;
 import com.battleship.board.Board;
 import com.battleship.board.Point;
 import com.battleship.board.Ship;
-import com.battleship.board.X_Coord;
-import com.battleship.board.Y_Coord;
+import com.battleship.board.XCoord;
+import com.battleship.board.YCoord;
 import com.battleship.board.PointStatus;
 
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class Opponent {
                     case "up":
                         nextInBranch = board.findByCoords(
                                 startPoint.getXCoord().getIdentifier(), // same x-coordinate
-                                Y_Coord.values()[startPoint.getYCoord().ordinal() - i].getIdentifier() // different y-coordinate (decreasing ordinal)
+                                YCoord.values()[startPoint.getYCoord().ordinal() - i].getIdentifier() // different y-coordinate (decreasing ordinal)
                         );
                         if (nextInBranch.getStatus() == PointStatus.UNCHECKED) {
                             result[i] = nextInBranch;
@@ -54,7 +54,7 @@ public class Opponent {
                     case "down":
                         nextInBranch = board.findByCoords(
                                 startPoint.getXCoord().getIdentifier(), // same x-coordinate
-                                Y_Coord.values()[startPoint.getYCoord().ordinal() + i].getIdentifier() // different y-coordinate (increasing ordinal)
+                                YCoord.values()[startPoint.getYCoord().ordinal() + i].getIdentifier() // different y-coordinate (increasing ordinal)
                         );
                         if (nextInBranch.getStatus() == PointStatus.UNCHECKED) {
                             result[i] = nextInBranch;
@@ -64,7 +64,7 @@ public class Opponent {
                         break;
                     case "left":
                         nextInBranch = board.findByCoords(
-                                X_Coord.values()[startPoint.getXCoord().ordinal() - i].getIdentifier(), // different x-coordinate (decreasing ordinal
+                                XCoord.values()[startPoint.getXCoord().ordinal() - i].getIdentifier(), // different x-coordinate (decreasing ordinal
                                 startPoint.getYCoord().getIdentifier() // same y-coordinate
                         );
                         if (nextInBranch.getStatus() == PointStatus.UNCHECKED) {
@@ -75,7 +75,7 @@ public class Opponent {
                         break;
                     case "right":
                         nextInBranch = board.findByCoords(
-                                X_Coord.values()[startPoint.getXCoord().ordinal() + i].getIdentifier(), // different x
+                                XCoord.values()[startPoint.getXCoord().ordinal() + i].getIdentifier(), // different x
                                 startPoint.getYCoord().getIdentifier() // same y
                         );
                         if (nextInBranch.getStatus() == PointStatus.UNCHECKED) {

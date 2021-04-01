@@ -16,5 +16,5 @@ class BattleshipClient {
         game.battle();
 
         game.over();
-   }
+    }
 }

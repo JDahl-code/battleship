@@ -44,8 +44,7 @@ class Player {
             branch = makeBranch(board, startPoint, ship.getLength(), direction);
             if (branch.length == ship.getLength()) {
                 validBranch = true;
-            }
-            else System.out.println("You can't put a ship there.  Not enough room");
+            } else System.out.println("You can't put a ship there.  Not enough room");
         }
 
         // pass ship to point
@@ -92,7 +91,7 @@ class Player {
     String directionFromInput() throws IllegalArgumentException {
         System.out.println("Please choose direction to place ship. e.g. up, down, left, right");
         String input = new Scanner(System.in).nextLine().toLowerCase();
-        String [] directions = {"up", "down", "left", "right"};
+        String[] directions = {"up", "down", "left", "right"};
         boolean valid = false;
         for (String direction : directions) {
             if (input.equals(direction)) {
@@ -102,18 +101,17 @@ class Player {
         }
         if (valid) {
             return input;
-        }
-        else throw new IllegalArgumentException("Invalid argument.  Please choose up, down, left or right");
+        } else throw new IllegalArgumentException("Invalid argument.  Please choose up, down, left or right");
     }
 
-    public void takeTurn (Board board){
+    public void takeTurn(Board board) {
         boolean valid = false;
         while (!valid) {
             try {
                 Point point = returnPointFromInput(board);
                 point.target();
                 valid = true;
-                if(point.getShip().getHitCount() == point.getShip().getLength()){
+                if (point.getShip().getHitCount() == point.getShip().getLength()) {
                     point.getShip().setDestroyed(true);
                 }
                 if (point.getShip().isDestroyed()) {

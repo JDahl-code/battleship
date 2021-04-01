@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-class Opponent {
+public class Opponent {
 
     private boolean shipFound = false;
     private Point initialHit;
@@ -169,7 +169,7 @@ class Opponent {
     private void followUp() {
         switchBranch();
 
-        if (branches[branchToken -1].length > hitsInARow) {
+        if (branches[branchToken - 1].length > hitsInARow) {
             Point point = branches[branchToken - 1][hitsInARow];
             point.target();
             if (point.hasShip()) {
@@ -179,8 +179,7 @@ class Opponent {
                 hitsInARow = 1;
                 missToken++;
             }
-        }
-        else {
+        } else {
             hitsInARow = 1;
             missToken++;
             followUp();
@@ -193,8 +192,7 @@ class Opponent {
             if (shipFound) {
                 onInitialHit(board);
             }
-        }
-        else {
+        } else {
             followUp();
             if (initialHit.getShip().isDestroyed()) {
                 board.remainingShips.remove(initialHit.getShip());

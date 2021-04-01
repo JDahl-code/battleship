@@ -16,7 +16,7 @@ public class Point {
     }
 
     public void target() throws RepeatGuessException {
-        
+
         if (status == UNCHECKED) {
             if (hasShip) {
                 ship.hit();

@@ -2,13 +2,14 @@ package com.battleship.gameplay;
 
 import com.battleship.board.Board;
 import com.battleship.board.ConsoleColors;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.battleship.board.ConsoleColors.*;
+import static com.battleship.board.ConsoleColors.BLUE;
 
 public class Game {
     //initialize  player, opponent, player board and opponent board.
@@ -23,7 +24,7 @@ public class Game {
      */
     public void loadBanner() {
         try {
-            List<String> lines = Files.readAllLines(Path.of("banner.txt"));
+            List<String> lines = Files.readAllLines(Path.of("./resources/banner.txt"));
             ConsoleColors.changeTo(BLUE);
             for (String line : lines) {
                 System.out.println(line);
@@ -35,7 +36,6 @@ public class Game {
         } catch (InterruptedException e) {
             throw new RuntimeException("Unexpected interrupt", e);
         }
-
     }
 
     /*

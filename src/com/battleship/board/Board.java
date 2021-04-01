@@ -35,6 +35,7 @@ public class Board {
                         point.getYCoord().getIdentifier().equals(y.toUpperCase())
         ).findAny().orElse(null);
     }
+
     /*  This method display a 10x10 board in color.
 
                   board
@@ -79,18 +80,18 @@ public class Board {
             for (int j = 0; j < 10; j++) {
 
                 //color point status symbol first
-                Point point = findByCoords( numbers[j],chars[i]);
+                Point point = findByCoords(numbers[j], chars[i]);
 
-                if (point.hasShip() && point.getStatus()== PointStatus.UNCHECKED ){
+                if (point.hasShip() && point.getStatus() == PointStatus.UNCHECKED) {
                     status = shipBody;
                     ConsoleColors.changeTo(WHITE);
-                } else if(point.getStatus() == PointStatus.HIT){
+                } else if (point.getStatus() == PointStatus.HIT) {
                     status = hit;
                     ConsoleColors.changeTo(RED);
-                }else if (point.getStatus() == PointStatus.MISS) {
+                } else if (point.getStatus() == PointStatus.MISS) {
                     status = miss;
                     ConsoleColors.changeTo(GREEN);
-                }else{
+                } else {
                     status = empty;
                 }
 

@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class Opponent {
+class Opponent {
 
     private boolean shipFound = false;
     private Point initialHit;
@@ -23,7 +23,7 @@ public class Opponent {
     private int missToken = 0;
 
 
-    Point pickRandomPoint(Board board) {
+    private Point pickRandomPoint(Board board) {
         ArrayList<Point> validPoints = board.getPoints().stream().filter(point -> point.getStatus() == PointStatus.UNCHECKED)
                                             .collect(Collectors.toCollection(ArrayList::new));
         int rand = (int) (Math.random() * validPoints.size());
@@ -31,7 +31,7 @@ public class Opponent {
     }
 
     // length includes the starting point. That way, the length attribute in Ship can be passed.
-    Point[] makeBranch(Board board, Point startPoint, int length, String direction) {
+    private Point[] makeBranch(Board board, Point startPoint, int length, String direction) {
         Point[] result = new Point[length];
         result[0] = startPoint;
         Point nextInBranch;
@@ -94,7 +94,7 @@ public class Opponent {
         return result;
     }
 
-    Point[][] makeBranches(Board board, Point startPoint, int length) {
+    private Point[][] makeBranches(Board board, Point startPoint, int length) {
         return new Point[][] {
                 makeBranch(board, startPoint, length, "up"),
                 makeBranch(board, startPoint, length, "down"),
@@ -133,7 +133,7 @@ public class Opponent {
     // guess behaviors
 
     // Do this when the opponent doesn't know where a ship is.
-    public void blindGuess(Board board) {
+    private void blindGuess(Board board) {
         Point point = pickRandomPoint(board);
         point.target();
         if (point.hasShip()) {
@@ -143,7 +143,7 @@ public class Opponent {
         }
     }
 
-    public void onInitialHit(Board board) {
+    private void onInitialHit(Board board) {
         int maxShipLength = Collections.max(board.remainingShips).getLength();
         branches = makeBranches(board, initialHit, maxShipLength);
         branchToken = (int) (Math.random() * 4) + 1;
@@ -166,7 +166,7 @@ public class Opponent {
         }
     }
 
-    public void followUp() {
+    private void followUp() {
         switchBranch();
 
         if (branches[branchToken -1].length > hitsInARow) {

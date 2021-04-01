@@ -20,7 +20,7 @@ public class OpponentTest {
         board = new Board();
         op = new Opponent();
     }
-
+/*
     @Test
     public void branchTest() {
         Point[] testArray = op.makeBranch(board, board.getPoints().get(0), 4, "up");
@@ -29,7 +29,8 @@ public class OpponentTest {
             System.out.printf("X: %s | Y: %s%n", p.getXCoord().getIdentifier(), p.getYCoord().getIdentifier());
         }
     }
-
+    */
+/*
     @Test
     public void branchesTest() {
         Point[][] branches = op.makeBranches(board, board.findByCoords("7", "H"), 4);
@@ -41,7 +42,7 @@ public class OpponentTest {
             System.out.println("\n");
         }
     }
-
+*/
     @Test
     @Ignore
     public void exceptionTest() {

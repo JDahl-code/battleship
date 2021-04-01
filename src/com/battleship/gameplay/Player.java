@@ -18,6 +18,7 @@ class Player {
         Point startPoint = null;
         boolean validPoint = false;
         while (!validPoint) {
+            System.out.printf("Place your %s (%d spaces).%n", ship.getName(), ship.getLength());
             try {
                 startPoint = returnPointFromInput(board);
                 if (startPoint != null && !startPoint.hasShip()) {

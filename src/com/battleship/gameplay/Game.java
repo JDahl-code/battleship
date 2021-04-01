@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.battleship.board.ConsoleColors.*;
 
@@ -19,8 +20,10 @@ public class Game {
     private final Board oppBoard = new Board();
     private final Opponent opponent = new Opponent();
 
-    private final int numberOfPlayerShips = 1;
-    private final int numberOfOpponentShips = 1;
+    private int numberOfPlayerShipsDestroyed = 0;
+    private int numberOfOpponentShipsDestroyed = 0;
+
+    private final int SHIPSCOUNT = 5;
 
     public void loadBanner() {
         try {
@@ -47,20 +50,39 @@ public class Game {
 
     public void initialize() {
         boardDisplay();
-        Ship ship = new Ship("Carrier", 5);
-        player.placeShip(playerBoard, ship);
-        opponent.placeShip(oppBoard,ship);
+
+        player.placeShip(playerBoard, playerBoard.carrier);
+        player.placeShip(playerBoard, playerBoard.battleship);
+        player.placeShip(playerBoard, playerBoard.destroyer);
+        player.placeShip(playerBoard, playerBoard.sub);
+        player.placeShip(playerBoard, playerBoard.patrolBoat);
+
+        opponent.placeShip(oppBoard,oppBoard.carrier);
+        opponent.placeShip(oppBoard,oppBoard.battleship);
+        opponent.placeShip(oppBoard,oppBoard.destroyer);
+        opponent.placeShip(oppBoard,oppBoard.sub);
+        opponent.placeShip(oppBoard,oppBoard.patrolBoat);
+
+
+        boardDisplay();
     }
 
 
     public void battle() {
-        while (numberOfPlayerShips != 0 && numberOfOpponentShips != 0) {
+        while (numberOfPlayerShipsDestroyed != SHIPSCOUNT && numberOfOpponentShipsDestroyed != SHIPSCOUNT) {
             playerTurn();
+
+            numberOfOpponentShipsDestroyed = (int) oppBoard.remainingShips.stream().filter(Ship::isDestroyed).count();
+
+
             opponentTurn();
+
+            numberOfPlayerShipsDestroyed = (int) playerBoard.remainingShips.stream().filter(Ship::isDestroyed).count();
+
             boardDisplay();
 
-            System.out.printf("You have %d ships left.\n", numberOfPlayerShips);
-            System.out.printf("Opponent has %d ships left.\n", numberOfOpponentShips);
+            System.out.printf("You have %d ships left.\n", 5-numberOfPlayerShipsDestroyed);
+            System.out.printf("Opponent has %d ships left.\n", 5-numberOfOpponentShipsDestroyed);
         }
     }
 
@@ -73,18 +95,18 @@ public class Game {
     }
 
     private void playerTurn() {
-
+    player.takeTurn(oppBoard);
 
     }
 
     private void opponentTurn() {
-
+        opponent.takeTurn(playerBoard);
     }
 
     public void over() {
-        if (numberOfPlayerShips == 0) {
+        if (numberOfPlayerShipsDestroyed == SHIPSCOUNT) {
             System.out.println("Sorry, you lost the battle.");
-        } else if (numberOfOpponentShips == 0) {
+        } else if (numberOfOpponentShipsDestroyed == SHIPSCOUNT) {
             System.out.println("Yeah, you won the battle.");
         }
     }

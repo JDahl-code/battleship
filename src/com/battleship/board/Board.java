@@ -105,4 +105,7 @@ public class Board {
     public List<Point> getPoints() {
         return points;
     }
+
+    public void setChosenShipPoints(Point[] p) {
+    }
 }

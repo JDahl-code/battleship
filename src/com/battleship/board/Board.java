@@ -84,7 +84,7 @@ public class Board {
 
                 if (point.hasShip() && point.getStatus() == PointStatus.UNCHECKED) {
                     status = shipBody;
-                    ConsoleColors.changeTo(WHITE);
+                    ConsoleColors.changeTo(BRIGHTWHITE);
                 } else if (point.getStatus() == PointStatus.HIT) {
                     status = hit;
                     ConsoleColors.changeTo(RED);

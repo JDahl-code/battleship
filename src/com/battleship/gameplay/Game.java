@@ -24,7 +24,7 @@ public class Game {
      */
     public void loadBanner() {
         try {
-            List<String> lines = Files.readAllLines(Path.of("banner.txt"));
+            List<String> lines = Files.readAllLines(Path.of("./resources/banner.txt"));
             ConsoleColors.changeTo(BLUE);
             for (String line : lines) {
                 System.out.println(line);

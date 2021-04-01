@@ -56,7 +56,7 @@ class Player {
     }
 
     String getCoordinateFromUser() throws IllegalArgumentException {
-        System.out.println("Please choose starting point to place ship. e.g. 1B or 5d");
+        System.out.println("Please enter a coordinate pair. Ex: 1A (Case insensitive).");
         String input = new Scanner(System.in).nextLine();
 
         // Covers length
@@ -110,8 +110,12 @@ class Player {
         boolean valid = false;
         while (!valid) {
             try {
-                returnPointFromInput(board).target();
+                Point point = returnPointFromInput(board);
+                point.target();
                 valid = true;
+                if (point.getShip().isDestroyed()) {
+                    System.out.printf("You destroyed my %s!", point.getShip().getName());
+                }
             } catch (IllegalArgumentException | NoSuchElementException e) {
                 System.out.println(e.getMessage());
             }

@@ -33,7 +33,7 @@ public class Board {
                 point -> point.getXCoord().getIdentifier().equals(x)
                         &&
                         point.getYCoord().getIdentifier().equals(y.toUpperCase())
-        ).findAny().get();
+        ).findAny().orElse(null);
     }
     /*  This method display a 10x10 board in color.
 
@@ -104,8 +104,5 @@ public class Board {
 
     public List<Point> getPoints() {
         return points;
-    }
-
-    public void setChosenShipPoints(Point[] p) {
     }
 }

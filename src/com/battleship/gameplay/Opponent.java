@@ -181,6 +181,7 @@ public class Opponent {
             }
         }
         else {
+            hitsInARow = 1;
             missToken++;
             followUp();
         }

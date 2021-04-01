@@ -2,6 +2,7 @@ package com.battleship.gameplay;
 
 import com.battleship.board.Board;
 import com.battleship.board.ConsoleColors;
+import com.battleship.board.Ship;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -51,18 +52,15 @@ public class Game {
         boardDisplay();
 
         //prompt player to place 5 ships on the playerboard
-        player.placeShip(playerBoard, playerBoard.carrier);
-        player.placeShip(playerBoard, playerBoard.battleship);
-        player.placeShip(playerBoard, playerBoard.destroyer);
-        player.placeShip(playerBoard, playerBoard.sub);
-        player.placeShip(playerBoard, playerBoard.patrolBoat);
+        for(Ship playerShip : playerBoard.remainingShips){
+            player.placeShip(playerBoard, playerShip);
+            boardDisplay();
+        }
 
         //opponent will automatically place 5 ships on his board.
-        opponent.placeShip(oppBoard, oppBoard.carrier);
-        opponent.placeShip(oppBoard, oppBoard.battleship);
-        opponent.placeShip(oppBoard, oppBoard.destroyer);
-        opponent.placeShip(oppBoard, oppBoard.sub);
-        opponent.placeShip(oppBoard, oppBoard.patrolBoat);
+        for(Ship oppoShip : oppBoard.remainingShips ){
+            opponent.placeShip(oppBoard, oppoShip);
+        }
         //display boards again to show player where his ships at
         boardDisplay();
     }
@@ -72,6 +70,7 @@ public class Game {
      * board, then opponent fires back at player board. After each round, display two boards to show result.
      */
     public void battle() {
+        System.out.println("Game has been initialized, please attack.");
         // if each board's still has remaining ships, keep looping
         while (oppBoard.remainingShips.size() != 0 && playerBoard.remainingShips.size() != 0) {
             playerTurn();

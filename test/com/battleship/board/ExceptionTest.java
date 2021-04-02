@@ -10,9 +10,4 @@ public class ExceptionTest {
         System.out.println(e.getMessage());
     }
 
-    @Test
-    public void fuckYou() {
-        String fu = "fuck you";
-        System.out.println(fu.substring(0, 1));
-    }
 }
